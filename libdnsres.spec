@@ -1,16 +1,17 @@
 %define	major 0
-%define libname	%mklibname dnsres %{major}
+%define libname %mklibname dnsres %{major}
+%define develname %mklibname dnsres -d
 
 Summary:	A non-blocking DNS resolver library
 Name:		libdnsres
 Version:	0.1a
-Release:	%mkrel 1
+Release:	%mkrel 2
 Group:		System/Libraries
 License:	BSD
 URL:		http://www.monkey.org/~provos/libdnsres/
 Source0:	http://www.monkey.org/~provos/%{name}-%{version}.tar.gz
 Source1:	http://www.monkey.org/~provos/%{name}-%{version}.tar.gz.sig
-BuildRequires:	libevent-devel
+BuildRequires:	event-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 %description
@@ -31,13 +32,14 @@ resolver code.  This is essentially an ugly hack to get a non-blocking
 DNS resolver for my own personal use.  That spells out to: use at your
 own risk, I know that the code is ugly.
 
-%package -n	%{libname}-devel
+%package -n	%{develname}
 Summary:	Static library and header files for the libdnsres library
 Group:		Development/C
 Requires:	%{libname} = %{version}
-Provides:	libdnsres-devel = %{version}
+Provides:	%{name}-devel = %{version}-%{release}
+Obsoletes:	%{mklibname dnsres 0 -d}
 
-%description -n	%{libname}-devel
+%description -n	%{develname}
 Libdnsres provides a non-blocking thread-safe interface for resolving DNS
 names.  It is built on top of libevent and makes heavy use of the *BSD
 resolver code.  This is essentially an ugly hack to get a non-blocking
@@ -73,12 +75,10 @@ make CFLAGS="%{optflags} -fPIC"
 %doc README LICENSE
 %{_libdir}/*.so.*
 
-%files -n %{libname}-devel
+%files -n %{develname}
 %defattr(-,root,root)
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/*.a
 %{_libdir}/*.la
 %{_mandir}/man3/*
-
-
