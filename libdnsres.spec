@@ -12,7 +12,6 @@ URL:		http://www.monkey.org/~provos/libdnsres/
 Source0:	http://www.monkey.org/~provos/%{name}-%{version}.tar.gz
 Source1:	http://www.monkey.org/~provos/%{name}-%{version}.tar.gz.sig
 BuildRequires:	libevent-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 %description
 Libdnsres provides a non-blocking thread-safe interface for resolving DNS
