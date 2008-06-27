@@ -1,3 +1,5 @@
+%define _disable_ld_no_undefined 1
+
 %define	major 0
 %define libname %mklibname dnsres %{major}
 %define develname %mklibname dnsres -d
@@ -5,14 +7,14 @@
 Summary:	A non-blocking DNS resolver library
 Name:		libdnsres
 Version:	0.1a
-Release:	%mkrel 3
+Release:	%mkrel 4
 Group:		System/Libraries
 License:	BSD
 URL:		http://www.monkey.org/~provos/libdnsres/
 Source0:	http://www.monkey.org/~provos/%{name}-%{version}.tar.gz
 Source1:	http://www.monkey.org/~provos/%{name}-%{version}.tar.gz.sig
 BuildRequires:	libevent-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Libdnsres provides a non-blocking thread-safe interface for resolving DNS
@@ -59,7 +61,7 @@ This package contains the static libdnsres library and its header files.
 make CFLAGS="%{optflags} -fPIC"
 
 %install
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 %makeinstall_std
 
@@ -72,7 +74,7 @@ make CFLAGS="%{optflags} -fPIC"
 %endif
 
 %clean
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 %files -n %{libname}
 %defattr(-,root,root)
