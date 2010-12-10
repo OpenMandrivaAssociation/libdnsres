@@ -7,7 +7,7 @@
 Summary:	A non-blocking DNS resolver library
 Name:		libdnsres
 Version:	0.1a
-Release:	%mkrel 5
+Release:	%mkrel 6
 Group:		System/Libraries
 License:	BSD
 URL:		http://www.monkey.org/~provos/libdnsres/
