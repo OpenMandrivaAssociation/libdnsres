@@ -10,7 +10,7 @@ Version:	0.1a
 Release:	8
 Group:		System/Libraries
 License:	BSD
-URL:		http://www.monkey.org/~provos/libdnsres/
+URL:		https://www.monkey.org/~provos/libdnsres/
 Source0:	http://www.monkey.org/~provos/%{name}-%{version}.tar.gz
 Source1:	http://www.monkey.org/~provos/%{name}-%{version}.tar.gz.sig
 BuildRequires:	libevent-devel
