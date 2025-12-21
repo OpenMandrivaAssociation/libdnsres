@@ -13,6 +13,11 @@ License:	BSD
 URL:		https://www.monkey.org/~provos/libdnsres/
 Source0:	http://www.monkey.org/~provos/%{name}-%{version}.tar.gz
 Source1:	http://www.monkey.org/~provos/%{name}-%{version}.tar.gz.sig
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	libevent-devel
 
 %description
